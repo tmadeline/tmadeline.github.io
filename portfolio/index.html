@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome!</title>
+	{% extends 'base.html' %}
+	<title>{% block title %}Welcome!{% endblock %}</title>
 	<style>
 		body {
 			background-color: #888888;
@@ -67,11 +68,17 @@
 	</style>
 </head>
 <body>
-	<div class="typewriter">
-		<h1>Hi, my name is <em>John Doe</em>, and I am a cybersecurity student.</h1>
-	</div>
-	<p>I'm currently studying at Kennesaw State University with a May 2024 projection to receive my Bachelor's of Science in Cybersecurity.</p>
-	<img src="profile-picture.jpg" alt="Profile picture">
-	<button onclick="window.location.href='https://www.google.com/'">Go to Google</button>
+	{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="typewriter">
+				<h1>Hi, my name is <em>John Doe</em>, and I am a cybersecurity student.</h1>
+			</div>
+			<p>I'm currently studying at Kennesaw State University with a May 2024 projection to receive my Bachelor's of Science in Cybersecurity.</p>
+			<img src="profile-picture.jpg" alt="Profile picture">
+			<button onclick="window.location.href='https://www.google.com/'">Go to Google</button>
+		</div>
+	</div>	
+	{% endblock %}
 </body>
 </html>
