@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
 
     {% block head %}
@@ -57,11 +56,17 @@
                 <img src="../static/headshot.gif" alt="Headshot"  class="mobile-headshot-img">
             </a>
         </div>
-        <button class="navbar-toggler collapsed __WebInspectorHideElement__" type="button" data-toggle="collapse" data-target="#header-nav" aria-expanded="false"><span class="__WebInspectorHideElement__"></span><span class="__WebInspectorHideElement__"></span><span class="__WebInspectorHideElement__"></span></button>
-        <div class="header-mobile-menu">
-            <a href="#" class="header-mobile-menu-icon" onclick="toggleMenu()">
-              <img src="hamburger.png" alt="Menu Icon" class="header-mobile-menu-img">
-            </a>
+        <button class="header-mobile__menu-toggle" type="button" data-toggle="collapse" data-target="#header-nav" aria-expanded="false"><span class="__WebInspectorHideElement__"></span><span class="__WebInspectorHideElement__"></span><span class="__WebInspectorHideElement__"></span></button>
+        <nav class="header-mobile-menu" id="header-mobile__menu-toggle">
+            <ul>
+                <li><a href="#" class="header-mobile-menu-icon">
+                  <div class="hamburger">
+                      <div class="line1"></div>
+                      <div class="line2"></div>
+                      <div class="line3"></div>
+                  </div>
+                </a></li>
+            </ul>
             <div id="header-mobile-dropdown" class="header-mobile-dropdown">
               <a href="{% url 'home' %}" class="header-mobile-dropdown-link">Welcome!</a>
               <a href="{% url 'about' %}" class="header-mobile-dropdown-link">About Me</a>
@@ -70,7 +75,7 @@
               <a href="{% url 'references' %}" class="header-mobile-dropdown-link">References</a>
               <a href="{% url 'contact' %}" class="header-mobile-dropdown-link">Contact Me</a>
             </div>
-        </div>
+        </nav>
     </header>
 
     <!-- Main Content -->

@@ -86,3 +86,138 @@ body {
 .mobile-menu a:hover {
   background-color: #ffffff22;
 }
+
+/* Use media queries to adjust the layout for mobile screen sizes. */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .container {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #2FCDFF;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+  .mobile-headshot {
+    display: flex;
+    align-items: center;
+  }
+  .mobile-headshot img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #2FCDFF;
+  }
+  .header-mobile-menu {
+    display: flex;
+    align-items: center;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: absolute;
+  }
+  .header-mobile-menu-icon {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  #hamburger {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  }
+  #hamburger div {
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+  }
+  #hamburger div:nth-child(1) {
+    top: 0;
+  }
+  #hamburger div:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #hamburger div:nth-child(3) {
+    bottom: 0;
+  }
+  .header-mobile__menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  }
+  .header-mobile__menu li {
+    margin-bottom: 10px;
+  }
+  .header-mobile__menu a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .header-mobile-dropdown {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: #fff;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .header-mobile-dropdown-link {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #2FCDFF;
+    text-decoration: none;
+  }
+  .header-mobile__menu-toggle {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  }
+  .hamburger {
+  display: inline-block;
+  cursor: pointer;
+  }
+  .line1, .line2, .line3 {
+    width: 30px;
+    height: 4px;
+    margin: 6px 0;
+    background-color: #333;
+    transition: transform 0.2s ease-in-out;
+  }
+  .change .line1 {
+    transform: rotate(-45deg) translate(-7px, 6px);
+  }
+  .change .line2 {
+    opacity: 0;
+  }
+  .change .line3 {
+    transform: rotate(45deg) translate(-7px, -6px);
+  }
+}
+
+
