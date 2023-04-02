@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 
 def home(request):
-    context = {'title': 'Home Page'}
-    return render(request, 'home.html', context)
+    context = {'title': 'Welcome!'}
+    return render(request, 'index.html', context)
 
 
 def about(request):
