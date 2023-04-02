@@ -66,17 +66,22 @@
 			height: 200px;
 			margin-bottom: 50px;
 		}
-		button {
+		.button {
 			display: inline-block;
-			background-color: #2FCDFF;
-  			color: #fff;
+			width: 50px;
+			height: 50px;
+			padding: 0;
 			border: none;
-			border-radius: 20px;
-			padding: 10px 20px;
-			font-size: 24px;
+			background: none;
 			cursor: pointer;
 		}
-		button:hover {
+
+		.button img {
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.button:hover {
 		  background-color: #fff;
 		  color: #2FCDFF;
 		}
@@ -89,8 +94,7 @@
 				<h1>{% block content %}Hi, my name is <em>Tolani Terrell-Adeleye</em>, and I am a cybersecurity student.</h1>
 			</div>
 			<p class="lead" style="color:#2FCDFF">I'm currently studying at Kennesaw State University with a May 2024 projection to receive my Bachelor's of Science in Cybersecurity.</p>
-			<img src="https://kennesawedu-my.sharepoint.com/f5671060-23af-4103-8966-79259caa94a8" alt="Headshot">
-			<button onclick="window.location.href='https://kennesawedu-my.sharepoint.com/:b:/g/personal/tadeley1_students_kennesaw_edu/EV4Cdw6W2S1KnxQaErrfXXMBKULl-mK9Q3Vy3V4ZLBW-pQ?e=xtFG5S'" target="_blank"><img src="path/to/image" alt="Download my CV"></button>
+			<button onclick="window.location.href=https://kennesawedu-my.sharepoint.com/:b:/g/personal/tadeley1_students_kennesaw_edu/EV4Cdw6W2S1KnxQaErrfXXMBKULl-mK9Q3Vy3V4ZLBW-pQ?e=b3Vm0q'" target="_blank"><img src="./static/cv_button.gif" alt="Download my CV"></button>
 
 		</div>
 	</div>
