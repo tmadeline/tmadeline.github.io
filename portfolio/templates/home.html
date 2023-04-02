@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome!</title>
+	<style>
+		body {
+			background-color: #888888;
+			background-image: url('circuit-pattern.png');
+			background-repeat: repeat;
+			background-size: cover;
+			font-family: Arial, sans-serif;
+			color: #ffffff;
+			text-align: center;
+			padding-top: 100px;
+		}
+
+		.typewriter h1 {
+			font-size: 3rem; /* Sets the font size of the heading */
+			font-weight: normal;
+			margin-bottom: 30px;
+			position: relative;
+			overflow: hidden; /* Ensures the text is not visible outside the paragraph */
+			border-right: .15em solid #2FCDFF; /* Creates the blinking cursor */
+			white-space: nowrap; /* Prevents the text from wrapping */
+			margin: 0 auto; /* Centers the text */
+			letter-spacing: .15em; /* Adjusts the spacing between letters */
+			animation: typing 3.5s steps(30, end) 1s 1 normal forwards, blink-caret .75s step-end infinite;
+		}
+
+		.typewriter h1 em {
+			font-style: italic;
+		}
+
+		@keyframes typing {
+			from { width: 0 }
+			to { width: 100% }
+		}
+
+		@keyframes blink-caret {
+			from, to { border-color: transparent }
+			50% { border-color: orange; }
+		}
+		p {
+			font-size: 24px;
+			margin-bottom: 50px;
+		}
+		img {
+			border-radius: 50%;
+			width: 200px;
+			height: 200px;
+			margin-bottom: 50px;
+		}
+		button {
+			display: inline-block;
+			background-color: #2FCDFF;
+  			color: #fff;
+			border: none;
+			border-radius: 20px;
+			padding: 10px 20px;
+			font-size: 24px;
+			cursor: pointer;
+		}
+		button:hover {
+		  background-color: #fff;
+		  color: #2FCDFF;
+		}
+	</style>
+</head>
+<body>
+	<div class="typewriter">
+		<h1>Hi, my name is <em>John Doe</em>, and I am a cybersecurity student.</h1>
+	</div>
+	<p>I'm currently studying at Kennesaw State University with a May 2024 projection to receive my Bachelor's of Science in Cybersecurity.</p>
+	<img src="profile-picture.jpg" alt="Profile picture">
+	<button onclick="window.location.href='https://www.google.com/'">Go to Google</button>
+</body>
+</html>
