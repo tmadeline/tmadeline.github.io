@@ -1,51 +1,74 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
 
     {% block head %}
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width: 768px)">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="mobile.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" type="text/css" href="lovelace.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <title>{% block title %}{% endblock %}</title>
     {% endblock %}
+
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="wrapper">
-            <div class="sidebar">
-                <div class="profile">
-                    <img src="{% static 'img/profile.jpg' %}" alt="Profile Picture">
-                </div>
-                <nav class="menu">
-                    <ul>
-                        <li><a href="{% url 'home' %}">Welcome!</a></li>
-                        <li><a href="{% url 'about' %}">About Me</a></li>
-                        <li><a href="{% url 'projects' %}">Projects</a></li>
-                        <li><a href="{% url 'certifications' %}">Certifications</a></li>
-                        <li><a href="{% url 'references' %}">References</a></li>
-                        <li><a href="{% url 'contact' %}">Contact Me</a></li>
-                    </ul>
-                </nav>
-                <div class="social-media">
-                    <ul>
-                        <li><a href="https://www.linkedin.com/janedoe" target="_blank"><img src="{% static 'img/linkedin.png' %}" alt="LinkedIn"></a></li>
-                        <li><a href="mailto:jdoe@icloud.com"><img src="{% static 'img/email.png' %}" alt="Email"></a></li>
-                        <li><a href="tel:+14701234567"><img src="{% static 'img/phone.png' %}" alt="Phone"></a></li>
-                    </ul>
-                </div>
-                <button class="hamburger-menu">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <!-- Desktop Sidebar -->
+    <div class="wrapper">
+        <div class="sidebar">
+            <button class="toggle-btn">
+              <img class="icon" src="plus.png" alt="Expand">
+            </button>
+            <div class="headshot">
+                <a href="{% url 'home' %}">
+                    <img src="../static/headshot.gif" alt="Headshot">
+                </a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="{% url 'home' %}">Welcome!</a></li>
+                    <li><a href="{% url 'about' %}">About Me</a></li>
+                    <li><a href="{% url 'projects' %}">Projects</a></li>
+                    <li><a href="{% url 'certifications' %}">Certifications</a></li>
+                    <li><a href="{% url 'references' %}">References</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Me</a></li>
+                </ul>
+            </nav>
+            <ul class="social-media">
+                    <li><a href="https://www.linkedin.com/in/tolani-t/" target="_blank"><img src="../static/linkedin.png" alt="LinkedIn"></a></li>
+                    <li><a href="https://github.com/tmadeline" target="_blank"><img src="../static/github.png" alt="GitHub"></a></li>
+                    <li><a href="https://developerprofiles.mendix.com/link/profile/overview/685783" target="_blank"><img src="../static/mendix.png" alt="Mendix"></a></li>
+                    <li><img src="../static/email.png" alt="Email"></li>
+                    <li><a href="tel:+14707915404"><img src="../static/phone.png" alt="Phone"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-headshot">
+            <a href="{% url 'home' %}">
+                <img src="../static/headshot.gif" alt="Headshot"  class="mobile-headshot-img">
+            </a>
+        </div>
+        <button class="navbar-toggler collapsed __WebInspectorHideElement__" type="button" data-toggle="collapse" data-target="#header-nav" aria-expanded="false"><span class="__WebInspectorHideElement__"></span><span class="__WebInspectorHideElement__"></span><span class="__WebInspectorHideElement__"></span></button>
+        <div class="header-mobile-menu">
+            <a href="#" class="header-mobile-menu-icon" onclick="toggleMenu()">
+              <img src="hamburger.png" alt="Menu Icon" class="header-mobile-menu-img">
+            </a>
+            <div id="header-mobile-dropdown" class="header-mobile-dropdown">
+              <a href="{% url 'home' %}" class="header-mobile-dropdown-link">Welcome!</a>
+              <a href="{% url 'about' %}" class="header-mobile-dropdown-link">About Me</a>
+              <a href="{% url 'projects' %}" class="header-mobile-dropdown-link">Projects</a>
+              <a href="{% url 'certifications' %}" class="header-mobile-dropdown-link">Certifications</a>
+              <a href="{% url 'references' %}" class="header-mobile-dropdown-link">References</a>
+              <a href="{% url 'contact' %}" class="header-mobile-dropdown-link">Contact Me</a>
             </div>
         </div>
     </header>
@@ -83,16 +106,24 @@
           <form class="footer-form" method="post">
             {% csrf_token %}
             <div class="form-group">
-              <input class="form-control" type="text" name="name" placeholder="Name" required>
+                <label>
+                    <input class="form-control" type="text" name="name" placeholder="Name" required>
+                </label>
             </div>
             <div class="form-group">
-              <input class="form-control" type="email" name="email" placeholder="Email" required>
+                <label>
+                    <input class="form-control" type="email" name="email" placeholder="Email" required>
+                </label>
             </div>
             <div class="form-group">
-              <input class="form-control" type="tel" name="phone" placeholder="Phone Number" required>
+                <label>
+                    <input class="form-control" type="tel" name="phone" placeholder="Phone Number" required>
+                </label>
             </div>
             <div class="form-group">
-              <textarea class="form-control" name="message" placeholder="Your message goes here..." rows="5" required></textarea>
+                <label>
+                    <textarea class="form-control" name="message" placeholder="Your message goes here..." rows="5" required></textarea>
+                </label>
             </div>
             <button class="btn btn-primary" type="submit">Send Message</button>
           </form>
