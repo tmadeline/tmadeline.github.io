@@ -6,12 +6,11 @@
 
 <style>
     .home {
-        background-image: url('https://www.canva.com/design/DAFe6cGgdn8/view');
+        background-image: image('../static/intro_overlay.png');
         background-repeat: repeat;
         background-size: cover;
         position: relative;
         text-align: center;
-        padding-top: 100px;
     }
 
     .overlay {
@@ -74,7 +73,7 @@
       }
     }
 
-    button {
+    a {
         display: inline-block;
         width: 30%;
         height: 17%;
@@ -86,43 +85,42 @@
         cursor: pointer;
     }
 
-    button img {
+    a img {
         height: 100%;
         object-fit: cover;
     }
 
-    button:hover {
+    a:hover {
         background-color: #fff;
         color: #2FCDFF;
     }
 </style>
 
 <script>
-  var greeting = document.getElementById("greeting");
-  var now = new Date();
-  var hour = now.getHours();
-  if (hour >= 0 && hour < 12) {
-    greeting.innerHTML = "good morning";
-  } else if (hour >= 12 && hour < 18) {
-    greeting.innerHTML = "good afternoon";
-  } else {
-    greeting.innerHTML = "good evening";
-  }
-  setTimeout(function(){
-    document.querySelector('.typewriter h1').style.display = 'inline-block';
-  }, 2000);
+    let greeting = document.getElementById("greeting");
+    let now = new Date();
+    let hour = now.getHours();
+    if (hour >= 0 && hour < 12) {
+        greeting.innerHTML = "good morning";
+    } else if (hour >= 12 && hour < 18) {
+        greeting.innerHTML = "good afternoon";
+    } else {
+        greeting.innerHTML = "good evening";
+    }
+      setTimeout(function(){
+        document.querySelector('.typewriter h1').style.display = 'inline-block';
+      }, 2000);
 </script>
 
 
 {% block content %}
     <div class="home">
-        <div class="overlay">
+        <div class="overlay"><img src="intro_overlay.png" alt="Network design"></div>
             <div class="typewriter">
                 <h1>Hi <span id="greeting"></span>, my name is <em>Tolani Terrell-Adeleye</em>, and I am a cybersecurity student.</h1>
                 <h1>I'm currently an undergraduate student majoring in cybersecurity.</h1>
             </div>
-            </div>
         <p>I'm currently studying at Kennesaw State University with a May 2024 projection to receive my Bachelor's of Science in Cybersecurity.</p>
-        <button href="cv.pdf" target="_blank"><img src="./static/cv_button.gif" alt="Download my CV"></button>
+        <a href="cv.pdf" target="_blank"><img src="./static/cv_button.gif" alt="Download my CV"></a>
         </div>
 {% endblock %}
