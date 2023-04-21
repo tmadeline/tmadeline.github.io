@@ -1,127 +1,619 @@
-{% extends 'base.html' %}
-{% load static %}
-
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<link href="https://s3.eu-west-1.amazonaws.com/halim.website/images/favicon.png" rel="icon" />
+<title>Halim - Ahmed Hesham AbdElHalim Personal Portfolio</title>
+<meta name="title" content="Halim - Ahmed Hesham AbdElHalim Personal Portfolio">
+<meta name="keywords" content="Cyber Security, AWS, AWS Development, Halim, Ahmed Hesham AbdElHalim, Ahmed Halim, Risk, IT, Compliance, GRC, DevSecOps">
+<meta name="description" content="Cyber Security Engineer with a wide skill set in different IT domains, Cloud enthusiast with strong development skills on AWS services.">
+<meta name="author" content="Ahmed Hesham AbdElHalim">
 
- <title>{% block title %}Welcome!{% endblock %}</title>
+<!-- Web Fonts -->
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900' type='text/css'>
 
-<style>
-    .home {
-        background-image: image('../static/intro_overlay.png');
-        background-repeat: repeat;
-        background-size: cover;
-        position: relative;
-        text-align: center;
-    }
+<!-- Stylesheet
+============================== -->
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/all.min.css" />
+<!-- Owl Carousel -->
+<link rel="stylesheet" type="text/css" href="vendor/owl.carousel/assets/owl.carousel.min.css" />
+<!-- Magnific Popup -->
+<link rel="stylesheet" type="text/css" href="vendor/magnific-popup/magnific-popup.min.css" />
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="css/color-green.css" />
+</head>
 
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #888888;
-        opacity: 0.2; /* 20% transparency */
-    }
+<body class="side-header" data-spy="scroll" data-target=".navbar" data-offset="1">
 
-    .typewriter h1 {
-        font-size: 4.41%; /* Sets the font size of the heading */
-        position: absolute;
-        left: 12.47%;
-        top: 10%;
-        overflow: hidden; /* Ensures the text is not visible outside the paragraph */
-        border-right: .15em solid #2FCDFF; /* Creates the blinking cursor */
-        white-space: nowrap; /* Prevents the text from wrapping */
-        margin: 0 auto; /* Centers the text */
-        animation: typing 3.5s steps(30, end) 1s 1 normal forwards, blink-caret .75s step-end infinite;
-        animation-delay: 2s;
-    }
+<!-- Preloader -->
+<div class="preloader preloader-dark">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
 
-    .typewriter h1:last-child {
-        border-right: none;
-    }
-
-    .typewriter h1 em {
-        font-weight: bold;
-        font-style: italic;
-    }
-
-    @keyframes typing {
-        from { width: 0 }
-        to { width: 75.02% }
-    }
-
-    @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: white; }
-    }
-
-    .typewriter::after {
-      content: "|";
-      display: inline-block;
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-
-    a {
-        display: inline-block;
-        width: 30%;
-        height: 17%;
-        margin-top: 2%;
-        margin-left: 35%;
-        padding: 0;
-        border: none;
-        background: none;
-        cursor: pointer;
-    }
-
-    a img {
-        height: 100%;
-        object-fit: cover;
-    }
-
-    a:hover {
-        background-color: #fff;
-        color: #2FCDFF;
-    }
-</style>
-
-<script>
-    let greeting = document.getElementById("greeting");
-    let now = new Date();
-    let hour = now.getHours();
-    if (hour >= 0 && hour < 12) {
-        greeting.innerHTML = "good morning";
-    } else if (hour >= 12 && hour < 18) {
-        greeting.innerHTML = "good afternoon";
-    } else {
-        greeting.innerHTML = "good evening";
-    }
-      setTimeout(function(){
-        document.querySelector('.typewriter h1').style.display = 'inline-block';
-      }, 2000);
-</script>
-
-
-{% block content %}
-    <div class="home">
-        <div class="overlay"><img src="intro_overlay.png" alt="Network design"></div>
-            <div class="typewriter">
-                <h1>Hi <span id="greeting"></span>, my name is <em>Tolani Terrell-Adeleye</em>, and I am a cybersecurity student.</h1>
-                <h1>I'm currently an undergraduate student majoring in cybersecurity.</h1>
-            </div>
-        <p>I'm currently studying at Kennesaw State University with a May 2024 projection to receive my Bachelor's of Science in Cybersecurity.</p>
-        <a href="cv.pdf" target="_blank"><img src="./static/cv_button.gif" alt="Download my CV"></a>
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light border-bottom-0">
+      <div class="container-fluid position-relative h-100 flex-lg-column pl-3 px-lg-3 pt-lg-3 pb-lg-2"> 
+        
+        <!-- Logo --> 
+        <a href="https://halim.website" class="mb-lg-auto mt-lg-4">
+			<span class="bg-dark-2 rounded-pill p-2 mb-lg-1 d-none d-lg-inline-block">
+				<img class="img-fluid rounded-pill d-block" src="https://s3.eu-west-1.amazonaws.com/halim.website/images/profile.jpg" title="Ahmed Hesham AbdElHalim - Halim" alt="Halim - Ahmed Hesham AbdElHalim">
+			</span>
+			<h1 class="text-5 text-white text-center mb-0 d-lg-block">Ahmed H. Halim</h1>
+        </a> 
+        <!-- Logo End -->
+          <!-- the Nav bar design goes here :)
+          ============================ -->
+        <div id="header-nav" class="collapse navbar-collapse w-100 my-lg-auto">
+          <ul class="navbar-nav text-lg-center my-lg-auto py-lg-3">
+            <li class="nav-item"><a class="nav-link smooth-scroll active" href="index.html#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link smooth-scroll" 	href="index.html#about">About Me</a></li>
+            <li class="nav-item"><a class="nav-link smooth-scroll" href="index.html#resume">Resume</a></li>
+           <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#services">What I Do</a></li>
+            <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link smooth-scroll" href="#testimonial">Testimonial</a></li> -->
+            <li class="nav-item"><a class="nav-link" href="https://Halim.Website/blog">Blog</a></li>
+            <li class="nav-item"><a class="nav-link smooth-scroll" href="index.html#contact">Contact</a></li>
+          </ul>
         </div>
-{% endblock %}
+        <ul class="social-icons social-icons-muted social-icons-sm mt-lg-auto ml-auto ml-lg-0 mb-n1 d-flex">
+          <li class="social-icons-linkedin"><a data-toggle="tooltip" href="http://www.linkedin.com/in/halim93/" target="_blank" title="LinkedIn" data-original-title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+          <li class="social-icons-github"><a data-toggle="tooltip" href="http://www.github.com/haliim/" target="_blank" title="Github" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+          <li class="social-icons-facebook"><a data-toggle="tooltip" href="https://www.facebook.com/ahmed.heshamabdelhalim.96" target="_blank" title="Facebook" data-original-title="Facebook"><i class="fab fa-facebook"></i></a></li>
+
+          <!--<li class="social-icons-facebook"><a data-toggle="tooltip" href="http://www.facebook.com/" target="_blank" title="" data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+          <li class="social-icons-twitter"><a data-toggle="tooltip" href="http://www.twitter.com/" target="_blank" title="" data-original-title="Twitter"><i class="fab fa-twitter"></i></a></li>
+          <li class="social-icons-dribbble"><a data-toggle="tooltip" href="http://www.dribbble.com/" target="_blank" title="" data-original-title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+          <li class="social-icons-github"><a data-toggle="tooltip" href="http://www.google.com/" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+          <li class="social-icons-github"><a data-toggle="tooltip" href="http://www.google.com/" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+          <li class="social-icons-github"><a data-toggle="tooltip" href="http://www.google.com/" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+          <li class="social-icons-github"><a data-toggle="tooltip" href="http://www.google.com/" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+          <li class="social-icons-github"><a data-toggle="tooltip" href="http://www.google.com/" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>     -->
+        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================================= -->
+  <div id="content" role="main"> 
+    
+    <!-- Intro
+    ============================================= -->
+    <section id="home">
+      <div class="hero-wrap">
+        <div class="hero-mask opacity-8 bg-dark"></div>
+        <div class="hero-bg parallax" style="background-image:url('https://s3.eu-west-1.amazonaws.com/halim.website/images/intro-bg.jpg');"></div>
+        <div class="hero-content section d-flex fullscreen">
+          <div class="container my-auto">
+            <div class="row">
+              <div class="col-12 text-center">
+                <div class="typed-strings">
+                  <p>I'm Ahmed H. Halim</p>
+                  <p>I work as a Cybersecurity Engineer</p>
+                  
+                  <!-- add sentences hna zy mnta 3ayz-->
+                </div>
+                <p class="text-7 font-weight-500 text-white mb-2 mb-md-3"> Hello!</p>
+                <h2 class="text-16 font-weight-600 text-white mb-2 mb-md-3"><span class="typed"></span></h2>
+                <p class="text-5 text-light mb-4">Currently, I work at Vodafone Egypt</p>
+                <div class="container">
+                  <a href="https://halim.s3.eu-west-3.amazonaws.com/Personal+Documents/Ahmed+Hesham+AbdElHalim+Resume.pdf" target="_blank" class="btn btn-primary rounded-pill shadow-none mt-2">Download My CV 📃</a>
+                  <a href="https://halim.website/blog" target="_blank" class="btn btn-outline-primary rounded-pill shadow-none mt-2">Explore My Blog ✍🏻</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="index.html#about" class="scroll-down-arrow text-white smooth-scroll"><span class="animated"><i class="fa fa-chevron-down"></i></span></a> </div>
+      </div>
+    </section>
+    <!-- Intro end --> 
+    
+    <!-- About
+    ============================================= -->
+    <section id="about" class="section bg-dark-1">
+      <div class="container px-lg-5"> 
+        <!-- Heading -->
+        <div class="position-relative d-flex text-center mb-5">
+          <h2 class="text-24 text-muted opacity-1 text-uppercase font-weight-600 w-100 mb-0">About Me</h2>
+          <p class="text-9 text-white font-weight-600 position-absolute w-100 align-self-center line-height-4 mb-0">Know Me More<span class="heading-separator-line border-bottom border-3 border-primary position-abolute d-block mx-auto"></span> </p>
+        </div>
+        <!-- Heading end-->
+        
+        <div class="row">
+          <div class="col-lg-8 text-center text-lg-left">
+            <h2 class="text-7 text-white font-weight-600 mb-3">I'm <span class="text-primary">Ahmed Hesham AbdElHalim,</span> a Cyber Security Engineer</h2>
+            <p class="text-white-50">Cyber Security Engineer with a wide skill set in different IT domains, Cloud enthusiast with strong development skills on AWS services.</p>
+            <p class="text-white-50">I also keep learning new technologies have wide knowledge in software, IT infrastructure, cloud, and DevOps, to keep the IT infrastructure and different technologies secure.</p>
+          </div>
+          <div class="col-lg-4 mt-5 mt-lg-0">
+            <div class="pl-4">
+              <ul class="list-style-2 list-style-light text-light">
+                <li><span class="font-weight-600 mr-2">Name:</span>Ahmed Hesham AbdElHalim</li>
+                <li><span class="font-weight-600 mr-2">Email:</span><a href="mailto:ah.hesham93@gmail.com">Ah.Hesham93@gmail.com</a></li>
+                <li><span class="font-weight-600 mr-2">Age:</span>28</li>
+                <li class="border-0"><span class="font-weight-600 mr-2">From:</span>Cairo, Egypt</li>
+              </ul>
+              <a href="https://halim.s3.eu-west-3.amazonaws.com/Personal+Documents/Ahmed+Hesham+AbdElHalim+Resume.pdf" target="_blank" class="btn btn-primary rounded-pill ">Download CV 📃</a> </div>
+          </div>
+        </div>
+        <div class="brands-grid separator-border separator-border-light mt-5">
+          <div class="row">
+            <div class="col-6 col-md-6">
+              <div class="featured-box text-center">
+                <h4 class="text-12 text-white-50 mb-0"><span class="counter" data-from="0" data-to="4">4</span>+</h4>
+                <p class="text-light mb-0">Years of Experience</p>
+              </div>
+            </div>
+            <!--<div class="col-6 col-md-3">
+              <div class="featured-box text-center">
+                <h4 class="text-12 text-white-50 mb-0"><span class="counter" data-from="0" data-to="250">250</span>+</h4>
+                <p class="text-light mb-0">Happy Clients</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="featured-box text-center">
+                <h4 class="text-12 text-white-50 mb-0"><span class="counter" data-from="0" data-to="650">650</span>+</h4>
+                <p class="text-light mb-0">Projects Done</p>
+              </div>
+            </div>-->
+            <div class="col-6 col-md-6">
+              <div class="featured-box text-center">
+                <h4 class="text-12 text-white-50 mb-0"><span class="counter" data-from="0" data-to="10">10</span>+</h4>
+                <p class="text-light mb-0">Courses & Certificates</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About end --> 
+
+        <!-- Tools i use
+    ============================================= -->
+    <section id="tools" class="section bg-dark-2">
+          <div class="container px-lg-5"> 
+            <!-- Heading -->
+            <div class="position-relative d-flex text-center mb-5">
+              <h2 class="text-24 text-muted opacity-1 text-uppercase font-weight-600 w-100 mb-0">My Skill Set</h2>
+              <p class="text-9 text-white font-weight-600 position-absolute w-100 align-self-center line-height-4 mb-0">Platforms ⚒️<span class="heading-separator-line border-bottom border-3 border-primary position-abolute d-block mx-auto"></span> </p>
+            </div>
+            <!-- Heading end-->
+        <hr>
+        <div class="owl-carousel owl-theme" data-autoplay="true" data-nav="true" data-loop="true" data-margin="30" data-slideby="2" data-stagepadding="5" data-items-xs="2" data-items-sm="3" data-items-md="4" data-items-lg="6">
+          <!-- Logos of the tools i use-->
+          <div class="logo-carousel"><a><img class="img-fluid" src="https://s3.eu-west-1.amazonaws.com/halim.website/images/tools/tenable_logo.png" alt="" /></a></div>
+          <div class="logo-carousel"><a><img class="img-fluid" src="https://s3.eu-west-1.amazonaws.com/halim.website/images/tools/gitlab.png" alt="" /></a></div>
+          <div class="logo-carousel"><a><img class="img-fluid" src="https://s3.eu-west-1.amazonaws.com/halim.website/images/tools/Twistlock_Logo.png" alt="" /></a></div>
+          <div class="logo-carousel"><a><img class="img-fluid" src="https://s3.eu-west-1.amazonaws.com/halim.website/images/tools/beyondtrust.png" alt="" /></a></div>
+          <div class="logo-carousel"><a><img class="img-fluid" src="https://s3.eu-west-1.amazonaws.com/halim.website/images/tools/aws.png" alt="" /></a></div>
+          <div class="logo-carousel"><a><img class="img-fluid" src="https://s3.eu-west-1.amazonaws.com/halim.website/images/tools/ansible1.png" alt="" /></a></div>
+          <div class="logo-carousel"><a><img class="img-fluid" src="https://s3.eu-west-1.amazonaws.com/halim.website/images/tools/clickup.png" alt="" /></a></div>
+          <!--<div class="logo-carousel"><a><img class="img-fluid" src="images/tools/kubernetes-logo.png" alt="" /></a></div>-->
+
+        </div>
+        <hr>
+      </div>
+    </section>
+
+    <!-- Resume
+    ============================================= -->
+    <section id="resume" class="section bg-dark-1">
+      <div class="container px-lg-5"> 
+        <!-- Heading -->
+        <div class="position-relative d-flex text-center mb-5">
+          <h2 class="text-24 text-muted opacity-1 text-uppercase font-weight-600 w-100 mb-0">Summary</h2>
+          <p class="text-9 text-white font-weight-600 position-absolute w-100 align-self-center line-height-4 mb-0">Resume<span class="heading-separator-line border-bottom border-3 border-primary position-abolute d-block mx-auto"></span> </p>
+        </div>
+        <!-- Heading end-->
+        
+        <div class="row"> 
+          <!-- My Experience -->
+          <!--Cyber Prevent-->
+          <div class="col-md-6">
+            <h2 class="text-6 text-white font-weight-600 mb-4">My Experience</h2>
+            <!--<div class="border border-dark rounded p-4 mb-4">
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="badge badge-light text-2 font-weight-400">FEB 2018 - NOV 2019</p>
+                  <h3 class="text-5 text-white">Technical Support Engineer</h3>
+                  <a class="text-primary" href="http://consultix.com" target="_blank">VODAFONE</a>
+                </div>
+                <div class="col-md-3">
+                  <a href="http://consultix.com" target="_blank"><img class="img-fluid" src="images/vodafone.png" alt="hhh" /></a>
+                </div>
+              </div>
+              <p class="text-white-50 mb-0">Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p>
+              <ul>
+                <li>1st item</li>
+                <li>2nd item</li>
+                <li>3rd item</li>
+              </ul>
+            </div>-->
+            <!--Vodafone Cyber Security Specialist-->
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">NOV 2020 - PRESENT</p>
+              <h3 class="text-5 text-white">Cyber Security Specialist</h3>
+              <p class="text-primary">VODAFONE &nbsp; <a href="https://www.vodafone.com" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+              <!--<img class="logo-resume" src="images/clients/vodafone.png" alt="" />-->
+              <p class="text-light mb-0"></p>
+              <ul class="text-light mb-0">
+                <li>Audit and Implement ISO27001.</li>
+                <li>Initiate and manage new security streams that improve security operations (ex: Vulnerability Management).</li>
+                <li>Planning and Implementation of new security mega projects (ex:PAM).</li>
+              </ul>
+            </div>
+            <!--Akwad DevOps Engineer - Part Time-->
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">MAY 2021 - APRIL 2022</p>
+              <h3 class="text-5 text-white">DevOps Engineer - Part Time</h3>
+              <p class="text-primary">AKWAD &nbsp; <a href="https://akwadtech.com/" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+              <p class="text-light mb-0"></p>
+              <ul class="text-light mb-0">
+                <li>Managing infrastructure projects for different customers on DigitalOcean & AWS, Troubleshooting, Health check & upgrades.</li>
+                <li>Working with EC2, SQS, S3, CodePipeline, CloudFront, CodeCommit & CodeDeploy.</li>
+                <li>Linux Automation using bash and Ansible.</li>
+                <li>Auto deployment using Gitlab CI & Enhancing Git Ops.</li>
+              </ul>
+            </div>
+
+            <!--Vodafone Discover Business Associate-->
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">JAN 2019 - OCT 2020</p>
+              <h3 class="text-5 text-white">Cyber Security Engineer - Discover Business Associate</h3>
+              <p class="text-primary">VODAFONE &nbsp; <a href="https://web.vodafone.com.eg/en/discover-for-graduates" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+              <p class="text-light mb-0">I've joined Vodafone discover program for top talented fresh graduates.
+                Discover is a globally development program that enables talented fresh graduates to develop and grow through customized job rotations, challenging business exposure, continuous development, and the below are the teams I've worked in.</p>
+              <ul class="text-light mb-0">
+                <li>Security Planning</li>
+                <li>Security Operations</li>
+                <li>Information Security</li>
+              </ul>
+            </div>
+            <!--Consultix-->
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">FEB 2018 - NOV 2019</p>
+              <h3 class="text-5 text-white">Technical Support Engineer</h3>
+              <p class="text-primary">CONSULTIX &nbsp; <a href="https://consultixwireless.com" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+              <p class="text-light mb-0">Consultix has the most comprehensive portfolio in the industry for IBS / DAS testing and design tools. Consultix unique solutions cover the entire IBS/DAS project life cycle end to end; From design, verification, installation testing and commissioning all the way to long-term maintenance, optimization and monitoring solutions. And the below are my main responsibilities.</p>
+              <ul class="text-light mb-0">
+                <li>1st and 2nd line support</li>
+                <li>Firmware upgrades</li>
+                <li>Hardware and software troubleshooting</li>
+                <li>Technical documentation</li>
+              </ul>
+            </div>
+            <!--Kydize
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">JUNE 2017 - MAY 2018</p>
+              <h3 class="text-5 text-white">Founder</h3>
+              <p class="text-primary">KYDIZE </p>
+              <p class="text-light mb-0">KyDize was a full digital solution for whom wants to build/transfer their business to the digital world, we provided integrated solution to sell your products online, build and develop your website.</p>
+              <ul class="text-light mb-0">
+                <li>Business planning</li>
+                <li>Wordpress and website design</li>
+                <li>Digital Marjeting</li>
+              </ul>
+            </div>-->
+          </div>
+          
+          
+          <div class="col-md-6">
+            <!-- My Education -->
+            <h2 class="text-6 text-white font-weight-600 mb-4">My Education</h2>
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">MAY 2020 - NOV 2020</p>
+              <h3 class="text-5 text-white">Cyber Security Specialization</h3>
+              <p class="text-primary">Maryland University - Coursera &nbsp; <a href="https://coursera.org/share/63e8a60b39250f8456a284e8c68f6229" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+              <p class="text-light mb-0">Courses included.</p>
+              <ul class="text-light mb-0">
+                <li>Usable security</li>
+                <li>Software security</li>
+                <li>Cryptography</li>
+                <li>Hardware security</li>
+                <li>Capstone project</li>
+              </ul>
+            </div>
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">2012 - 2017</p>
+              <h3 class="text-5 text-white">Bachelor of Engineering (B.E.) Communication & Electronics</h3>
+              <p class="text-primary">Ain Shams University &nbsp; <a href="https://eng.asu.edu.eg" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+            </div>
+            <!--Courses and Certificates-->
+            <h2 class="text-6 text-white font-weight-600 mb-4">My Courses and Certificates</h2>
+            <!-- Cloud DevOps Engineer NanoDegree - Udacity -->
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">August 2021 - Currently Studying</p>
+              <h3 class="text-5 text-white">Cloud DevOps Engineer NanoDegree</h3>
+              <ul class="text-light mb-0">
+                <li>AWS Services Overvies</li>
+                <li>CloudFormation IAC</li>
+                <li>CI/CD</li>
+                <li>Logging & Monitoring</li>
+                <li>Microservices & Kubernetes</li>
+              </ul>
+              <p class="text-primary">Udacity NanoDegree diploma details &nbsp; <a href="https://www.udacity.com/course/cloud-dev-ops-nanodegree--nd9991" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+            </div>
+            <!-- AWS Developer Associate-->
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">Jan 2021 - June 2021</p>
+              <h3 class="text-5 text-white">AWS Developer Associate</h3>
+              <p class="text-primary">AWS Certificate &nbsp; <a href="https://www.credly.com/badges/e7640c6e-da1d-4346-b4cc-32661fd3cf18/public_url" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+            </div>
+            <!-- DO180: Intro to containers, kubernetes & Redhat Openshift-->
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">Jan 2021</p>
+              <h3 class="text-5 text-white">DO180: Intro to containers, kubernetes & Redhat Openshift</h3>
+              <p class="text-primary">Redhat course details &nbsp; <a href="https://www.redhat.com/en/services/training/do180-red-hat-openshift-I-containers-kubernetes" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+
+            </div>
+            <!-- ISO27001-->
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">December 2020 - January 2021</p>
+              <h3 class="text-5 text-white">PECB Certified ISO/IEC 27001 Auditor</h3>
+              <p class="text-primary">PECB &nbsp; <a href="https://pecb.com/en/userCertification/certificateVerification" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+              <p>ISAU1075090-2021-01</P>
+            </div>
+            <!-- Juniper-->
+            <div class="border border-dark rounded p-4 mb-4">
+              <p class="badge badge-success text-2 font-weight-400">MAY 2020 - NOV 2020</p>
+              <h3 class="text-5 text-white">JNCIS-SEC - Cyber Security Specialist</h3>
+              <p class="text-primary">JUNIPER Certificate &nbsp; <a href="https://www.youracclaim.com/badges/d9bdd424-e6cc-44e4-8d03-e697409466e5/public_url" target="_blank"><i class="fas fa-external-link-alt"></i></a></p>
+            </div>
+          </div>
+        </div>
+        <!-- My Skills -->
+		<h2 class="text-6 text-white font-weight-600 mt-4 mb-4">My Skills</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="text-light font-weight-500 text-left mb-2">ISO 27001 Implementation <span class="float-right">90%</span></p>
+            <div class="progress progress-sm bg-dark-2 mb-4">
+              <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="text-light font-weight-500 text-left mb-2">Firewall Configuration (Juniper SRX & Fortigate)<span class="float-right">90%</span></p>
+            <div class="progress progress-sm bg-dark-2 mb-4">
+              <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="text-light font-weight-500 text-left mb-2">Vulnerability Management - Tenable <span class="float-right">85%</span></p>
+            <div class="progress progress-sm bg-dark-2 mb-4">
+              <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="text-light font-weight-500 text-left mb-2">Anti Virus - Symantec <span class="float-right">85%</span></p>
+            <div class="progress progress-sm bg-dark-2 mb-4">
+              <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            
+          </div>
+          <div class="col-md-6">
+            <p class="text-light font-weight-500 text-left mb-2">Various AWS Services <span class="float-right">85%</span></p>
+            <div class="progress progress-sm bg-dark-2 mb-4">
+              <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="text-light font-weight-500 text-left mb-2">Bash <span class="float-right">80%</span></p>
+            <div class="progress progress-sm bg-dark-2 mb-4">
+              <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="text-light font-weight-500 text-left mb-2">Python <span class="float-right">70%</span></p>
+            <div class="progress progress-sm bg-dark-2 mb-4">
+              <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="text-light font-weight-500 text-left mb-2">Project Management <span class="float-right">80%</span></p>
+            <div class="progress progress-sm bg-dark-2 mb-4">
+              <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5"><a href="https://halim.website/blog" target="_blank" class="btn btn-outline-secondary rounded-pill shadow-none">Explore My Blog <span class="ml-1"><i class="fas fa-external-link-alt"></i></span></a></div>
+      </div>
+    </section>
+    <!-- Resume end --> 
+    
+    
+    <!-- Contact Me
+    ============================================= -->
+    <section id="contact" class="section bg-dark-2">
+      <div class="container px-lg-5"> 
+        <!-- Heading -->
+        <div class="position-relative d-flex text-center mb-5">
+          <h2 class="text-24 text-muted opacity-1 text-uppercase font-weight-600 w-100 mb-0">Contact</h2>
+          <p class="text-9 text-white font-weight-600 position-absolute w-100 align-self-center line-height-4 mb-0">Get in Touch<span class="heading-separator-line border-bottom border-3 border-primary position-abolute d-block mx-auto"></span> </p>
+        </div>
+        <!-- Heading end-->
+        <div class="row">
+          <div class="col-md-4 col-xl-4 order-1 order-md-0 text-center text-md-left mt-5 mt-md-0">
+            <h2 class="mb-3 text-5 text-white text-uppercase">Contact Details</h2>
+            <!--<p class="text-3 text-white-50 mb-4">4th Floor, Plot No.22,<br>
+              145 Murphy Canyon Rd.<br>
+              San Diego CA 2028 </p>-->
+            <p class="text-3 text-white-50 mb-1"><span class="text-primary text-4 mr-2"><i class="fas fa-phone"></i></span>+2 0102 7676 999</p>
+            <p class="text-3 text-white-50 mb-4"><span class="text-primary text-4 mr-2"><i class="fas fa-envelope"></i></span>Ah.Hesham93@gmail.com</p>
+            <h2 class="mb-3 text-5 text-white text-uppercase">Follow Me</h2>
+            <ul class="social-icons social-icons-muted ml-md-n2 justify-content-center justify-content-md-start">
+              <li class="social-icons-linkedin"><a data-toggle="tooltip" href="http://linkedin.com/in/halim93/" target="_blank" title="" data-original-title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+              <li class="social-icons-github"><a data-toggle="tooltip" href="http://github.com/haliim" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+              <li class="social-icons-google"><a data-toggle="tooltip" href="mailto:ah.hesham93@gmail.com" target="_blank" title="" data-original-title="Gmail"><i class="fab fa-google"></i></a></li>
+
+              <!--<li class="social-icons-twitter"><a data-toggle="tooltip" href="https://twitter.com/" target="_blank" title="" data-original-title="Twitter"><i class="fab fa-twitter"></i></a></li>
+              <li class="social-icons-facebook"><a data-toggle="tooltip" href="http://facebook.com/" target="_blank" title="" data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a></li>-->
+            </ul>
+          </div>
+          <div class="col-md-8 col-xl-8 order-0 order-md-1">
+            <h2 class="mb-3 text-5 text-white text-uppercase text-center text-md-left">Send a Message</h2>
+			<form id="contact-form1" class="form-dark" action="https://getform.io/f/0187bd15-46f5-47ef-93f1-0175872201f6" method="post">
+              <div class="row">
+                <div class="col-xl-6">
+                  <div class="form-group">
+                    <input name="name" type="text" class="form-control" required placeholder="Name">
+                  </div>
+                </div>
+                <div class="col-xl-6">
+                  <div class="form-group">
+                    <input name="email" type="email" class="form-control" required placeholder="Email">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input name="Phone Number" type="tel" class="form-control" required placeholder="Phone Number">
+              </div>
+              <div class="form-group">
+                <textarea name="form-message" class="form-control" rows="5" required placeholder="Your message goes here........"></textarea>
+              </div>
+              <!-- Recapchta details
+              <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+              <div id="recaptcha-v2" data-sitekey="6LfGTPgZAAAAAE0EUSBYxzBw7TMQyByBTm35FEJP" class="g-recaptcha" ></div>
+-->
+              <p class="text-center mt-4 mb-0">
+                
+				<button id="submit-btn" class="btn btn-primary rounded-pill d-inline-flex" type="submit">Send Message 📨</button>
+              </p>
+            </form>
+          </div>
+        </div>
+		
+      </div>
+    </section>
+    <!-- Contact Me end --> 
+    
+  </div>
+  <!-- Content end --> 
+  
+  <!-- Footer
+  ============================================= -->
+  <footer id="footer" class="section footer-text-light bg-dark-1">
+    <div class="container px-lg-5">
+      <div class="row">
+        <div class="col-lg-6 text-center text-lg-left">
+          <p class="mb-3 mb-lg-0">Made with <i class="fa fa-heart" style="color:red;"></i> Copyright © 2019 - <script>document.write(new Date().getFullYear())</script> </p>
+        </div>
+        <div class="col-lg-6">
+          <ul class="nav nav-separator nav-separator-light justify-content-center justify-content-lg-end">
+            <!--<li class="nav-item"> <a class="nav-link" data-toggle="modal" data-target="#terms-policy" href="#">Terms & Policy</a></li>
+            <li class="nav-item"> <a class="nav-link" data-toggle="modal" data-target="#disclaimer" href="#">Disclaimer</a></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer end --> 
+  
+</div>
+<!-- Document Wrapper end --> 
+
+
+<!-- Calendly badge widget begin 
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<script type="text/javascript">Calendly.initBadgeWidget({ url: 'https://calendly.com/ahmed-halim?primary_color=28a745', text: 'Book a Free Consultation', color: '#28a745', textColor: '#ffffff', branding: false });</script>
+ Calendly badge widget end -->
+
+
+<!-- Back to Top
+============================================= --> 
+<a id="back-to-top" class="rounded-circle" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- Terms & Policy Modal
+================================== 
+<div id="terms-policy" class="modal fade" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content bg-dark-2 text-light">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title text-white">Terms & Policy</h5>
+        <button type="button" class="close font-weight-400 text-white" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body p-4">
+        <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <h3 class="text-white mb-3 mt-4 mt-4">Terms of Use</h3>
+        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Simply dummy text of the printing and typesetting industry.</p>
+        <h5 class="text-white text-4 mt-4">Part I – Information simone collects and controls</h5>
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <h5 class="text-white text-4 mt-4">Part II – Information that simone processes on your behalf</h5>
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <h5 class="text-white text-4 mt-4">Part III – General</h5>
+        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <h3 class="text-white mb-3 mt-4">Privacy Policy</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+        <ol class="line-height-5">
+          <li>Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</li>
+          <li>Quidam lisque persius interesset his et, Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</li>
+          <li>In quot quidam persequeris vim, ad mea essent possim iriure. Quidam lisque persius interesset his et.</li>
+          <li>Quidam lisque persius interesset his et, Lisque persius interesset his et.</li>
+          <li>Interesset his et, Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</li>
+          <li>Persius interesset his et, Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</li>
+          <li>Quot quidam persequeris vim Quidam lisque persius interesset his et, Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+ Terms & Policy Modal End --> 
+
+<!-- Disclaimer Modal
+================================== 
+<div id="disclaimer" class="modal fade" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content bg-dark-2 text-light">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title text-white">Copyright & Disclaimer</h5>
+        <button type="button" class="close font-weight-400 text-white" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body p-4">
+        <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+        <ul class="line-height-5">
+          <li>Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</li>
+          <li>Quidam lisque persius interesset his et, Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</li>
+          <li>In quot quidam persequeris vim, ad mea essent possim iriure. Quidam lisque persius interesset his et.</li>
+          <li>Quidam lisque persius interesset his et, Lisque persius interesset his et.</li>
+          <li>Interesset his et, Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</li>
+          <li>Persius interesset his et, Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</li>
+          <li>Quot quidam persequeris vim Quidam lisque persius interesset his et, Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+ Disclaimer Modal End -->
+
+<!-- JavaScript --> 
+<script src="vendor/jquery/jquery.min.js"></script> 
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Easing --> 
+<script src="vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Appear --> 
+<script src="vendor/jquery.appear/jquery.appear.min.js"></script> 
+<!-- Counter --> 
+<script src="vendor/jquery.countTo/jquery.countTo.min.js"></script> 
+<!-- Parallax Bg --> 
+<script src="vendor/parallaxie/parallaxie.min.js"></script> 
+<!-- Typed --> 
+<script src="vendor/typed/typed.min.js"></script> 
+<!-- Owl Carousel --> 
+<script src="vendor/owl.carousel/owl.carousel.min.js"></script> 
+<!-- isotope Portfolio Filter --> 
+<script src="vendor/isotope/isotope.pkgd.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script --> 
+<script src="js/theme.js"></script>
+</body>
+</html>
