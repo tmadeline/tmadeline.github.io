@@ -2,15 +2,15 @@
 		COLOR Green
 ==============================*/
 ::selection {
-  background: #28a745;
+  background: #888888;
 }
 
 a, a:focus {
-  color: #28a745;
+  color: #20c997;
 }
 
 a:hover, a:active {
-  color: #218a39;
+  color: #1baa80;
 }
 
 .primary-menu ul.navbar-nav > li:hover > a:not(.btn), .primary-menu ul.navbar-nav > li > a.active:not(.btn) {

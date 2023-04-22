@@ -42,9 +42,9 @@ body, html {
 }
 
 body {
-  background: #dddddd;
-  color: #4c4d4d;
-  font-family: "Poppins", sans-serif;
+  background: #888888;
+  color: #ffffff;
+  font-family: 'Lovelace Text', serif;
 }
 
 /*-------- Preloader --------*/
