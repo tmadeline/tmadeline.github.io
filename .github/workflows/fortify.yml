@@ -54,9 +54,11 @@ jobs:
           java-version: 11
           distribution: 'temurin'
       - name: Install Node.js 16
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3.6.0
         with:
-          node-version: '16.x'
+          node-version: 'latest'
+      - run: npm ci
+      - run: npm test
       - name: Create pom.xml
         run: |
           echo "<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\"><modelVersion>4.0.0</modelVersion><groupId>com.example</groupId><artifactId>example</artifactId><version>1.0-SNAPSHOT</version></project>" > pom.xml
@@ -71,11 +73,6 @@ jobs:
       #   ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
       - name: Download Fortify ScanCentral Client
         uses: fortify/gha-setup-scancentral-client@v2.2.2
-        with:
-          scancentral-url: 'https://your.scancentral.com'
-          scancentral-tenant: ${{ secrets.SCANCENTRAL_TENANT }}
-          scancentral-client-id: ${{ secrets.SCANCENTRAL_CLIENT_ID }}
-          scancentral-client-secret: ${{ secrets.SCANCENTRAL_CLIENT_SECRET }}
       - name: Build with Maven
         run: mvn clean package
       - name: Generate Fortify Scan
