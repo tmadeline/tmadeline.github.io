@@ -70,18 +70,33 @@ jobs:
       #   For other build tools, add your build commands to download necessary dependencies and prepare according to Fortify on Demand Packaging documentation.
       #   ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
       - name: Download Fortify ScanCentral Client
-        uses: fortify/gha-setup-scancentral-client@5b7382f8234fb9840958c49d5f32ae854115f9f3
+        uses: fortify/gha-setup-scancentral-client@4.0.0
+        with:
+          scancentral-url: 'https://your.scancentral.com'
+          scancentral-tenant: ${{ secrets.SCANCENTRAL_TENANT }}
+          scancentral-client-id: ${{ secrets.SCANCENTRAL_CLIENT_ID }}
+          scancentral-client-secret: ${{ secrets.SCANCENTRAL_CLIENT_SECRET }}
+      - name: Build with Maven
+        run: mvn clean package
+      - name: Generate Fortify Scan
+        run: mvn -B com.fortify.plugin:sca-maven-plugin:translate
+      - name: Upload to Fortify on Demand
+        run: mvn -B com.fortify.plugin:sca-maven-plugin:upload   
+        env:
+          FORTIFY_TENANT_ID: ${{ secrets.FORTIFY_TENANT_ID }}
+          FORTIFY_USER_NAME: ${{ secrets.FORTIFY_USER_NAME }}
+          FORTIFY_PASSWORD: ${{ secrets.FORTIFY_PASSWORD }}
       - name: Package Code + Dependencies
         run: scancentral package $PACKAGE_OPTS -o package.zip
         env:
-          PACKAGE_OPTS: "-bt mvn"
+          PACKAGE_OPTS: "-bt mvn"  
 
       # Start Fortify on Demand SAST scan and wait until results complete. For more information on FoDUploader commands, see https://github.com/fod-dev/fod-uploader-java
       # TODO: Update ENV variables for your application and create the necessary GitHub Secrets.  Helpful hints:
       #   Credentials and release ID should be obtained from your FoD tenant (either Personal Access Token or API Key can be used).
       #   Automated Audit preference should be configured for the release's Static Scan Settings in the Fortify on Demand portal.
       - name: Download Fortify on Demand Universal CI Tool
-        uses: fortify/gha-setup-fod-uploader@6e6bb8a33cb476e240929fa8ebc739ff110e7433
+        uses: fortify/gha-setup-fod-uploader@2.1.4
       - name: Perform SAST Scan
         run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl $FOD_API_URL -purl $FOD_URL -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" $FOD_UPLOADER_OPTS -n "$FOD_UPLOADER_NOTES"
         env:
