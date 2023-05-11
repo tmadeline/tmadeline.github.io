@@ -71,16 +71,6 @@ jobs:
       #   ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
       - name: Download Fortify ScanCentral Client
         uses: fortify/gha-setup-scancentral-client@v2.2.2
-      - name: Build with Maven
-        run: mvn clean package
-      - name: Generate Fortify Scan
-        run: mvn -B com.fortify.plugin:sca-maven-plugin:translate
-      - name: Upload to Fortify on Demand
-        run: mvn -B com.fortify.plugin:sca-maven-plugin:upload   
-        env:
-          FORTIFY_TENANT_ID: ${{ secrets.FORTIFY_TENANT_ID }}
-          FORTIFY_USER_NAME: ${{ secrets.FORTIFY_USER_NAME }}
-          FORTIFY_PASSWORD: ${{ secrets.FORTIFY_PASSWORD }}
       - name: Package Code + Dependencies
         run: scancentral package $PACKAGE_OPTS -o package.zip
         env:
